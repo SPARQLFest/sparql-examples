@@ -6,7 +6,7 @@
 
 ex:lymeDisease a sh:SPARQLExecutable,
         sh:SPARQLSelectExecutable ;
-    rdfs:comment "A query that check in cordis, for all projects that have the word Lyme disease in the abstract."^^rdf:HTML ;
+    rdfs:comment "A query that check in cordis, for all projects that have the word 'Lyme disease' in the abstract."^^rdf:HTML ;
     sh:prefixes _:sparql_examples_prefixes ;
     sh:select """
 PREFIX eurio: http://data.europa.eu/s66#

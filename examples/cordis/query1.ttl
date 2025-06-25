@@ -1,0 +1,24 @@
+@prefix ex: <https://sparql.uniprot.org/.well-known/sparql-examples/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+ex:lymeDisease a sh:SPARQLExecutable,
+        sh:SPARQLSelectExecutable ;
+    rdfs:comment "A query that check in cordis, for all projects that have the word Lyme disease in the abstract."^^rdf:HTML ;
+    sh:prefixes _:sparql_examples_prefixes ;
+    sh:select """
+PREFIX eurio: http://data.europa.eu/s66#
+
+SELECT ?project_title ?abstract
+WHERE {
+?project a eurio:Project ;
+eurio:title ?project_title ;
+eurio:abstract ?abstract .
+
+FILTER(CONTAINS(LCASE(STR(?abstract)), "lyme disease"))
+}
+ORDER BY ?project_title
+""" ;
+    schema:target <https://cordis.europa.eu/datalab/sparql-endpoint> .

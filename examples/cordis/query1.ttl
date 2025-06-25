@@ -4,7 +4,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-ex:lymeDisease a sh:SPARQLExecutable,
+ex:lymeDisease rdf:type sh:SPARQLExecutable,
         sh:SPARQLSelectExecutable ;
     rdfs:comment "A query that check in cordis, for all projects that have the word 'Lyme disease' in the abstract."^^rdf:HTML ;
     sh:prefixes _:sparql_examples_prefixes ;
